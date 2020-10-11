@@ -1,0 +1,7 @@
+.board__btn {
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+    border: 2px solid dodgerblue;
+    border-radius: 5px;
+}

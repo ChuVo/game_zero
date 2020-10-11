@@ -1,28 +1,36 @@
-import React from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import Cell from "./Cell";
 
-const Board = () => {
+const Board = (props) => {
+    const { squares, onClick } = props;
+    const values = squares.squares;
+
+    const renderCell = (i) => {
+        return (
+            <button className={'board__btn'} onClick={() => {onClick(i)}} >
+                {values[i]}
+            </button>
+        )
+    }
 
     return (
         <div className={'board'}>
-
             <div className="board__row">
-                <Cell value={0} onClick={() => {console.log('click')}} />
-                <Cell value={1} onClick={() => {console.log('click')}} />
-                <Cell value={2} onClick={() => {console.log('click')}}  />
+                {renderCell(0)}
+                {renderCell(1)}
+                {renderCell(2)}
+            </div>
+            <div className="board__row">
+                {renderCell(3)}
+                {renderCell(4)}
+                {renderCell(5)}
             </div>
 
-            {/*<div className="board__row">*/}
-            {/*    {renderCell(3)}*/}
-            {/*    {renderCell(4)}*/}
-            {/*    {renderCell(5)}*/}
-            {/*</div>*/}
-
-            {/*<div className="board__row">*/}
-            {/*    {renderCell(6)}*/}
-            {/*    {renderCell(7)}*/}
-            {/*    {renderCell(8)}*/}
-            {/*</div>*/}
+            <div className="board__row">
+                {renderCell(6)}
+                {renderCell(7)}
+                {renderCell(8)}
+            </div>
         </div>
     )
 };
